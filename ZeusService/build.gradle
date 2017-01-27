@@ -1,18 +1,22 @@
 buildscript {
 	ext {
 		springBootVersion = '1.4.3.RELEASE'
+		springDependencyMageVersion = '0.5.4.RELEASE'
 	}
 	repositories {
 		mavenCentral()
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("io.spring.gradle:dependency-management-plugin:${springDependencyMageVersion}")
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: "io.spring.dependency-management"
 apply plugin: 'org.springframework.boot'
+
 
 jar {
 	baseName = 'ZeusService'
@@ -25,11 +29,22 @@ repositories {
 	mavenCentral()
 }
 
+dependencyManagement {
+	imports {
+		mavenBom 'com.amazonaws:aws-java-sdk-bom:1.10.77'
+	}
+}
+
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('com.amazonaws:aws-java-sdk-s3')
+    compile('com.amazonaws:aws-java-sdk-dynamodb:1.10.8')
+
 	runtime('org.springframework.boot:spring-boot-devtools')
+
 	compileOnly('org.projectlombok:lombok')
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
 }
