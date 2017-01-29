@@ -5,6 +5,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.james.zeus.dto.TweetItem;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,8 +24,11 @@ public class TweetDAO implements ITweetDAO {
 
     @Override
     public List<TweetItem> getAllTweets() {
+        List<TweetItem> result = new ArrayList<>();
         List<TweetItem> tweets = dynamoDBMapper.scan(TweetItem.class, new DynamoDBScanExpression());
-        return tweets;
+        // we need to do this the list return from the mapper is unmodifiable
+        result.addAll(tweets);
+        return result;
     }
 
     @Override
