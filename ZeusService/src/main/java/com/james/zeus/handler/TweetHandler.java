@@ -14,13 +14,6 @@ public class TweetHandler {
     @Autowired
     private TweetDAO tweetDAO;
 
-    public String printHelloWorld() {
-        return "Hello World";
-    }
-    public void haha() {
-        tweetDAO.saveTweet(new TweetItem().setUserId("userId").setCreatedTimeStamp(1000L));
-    }
-
     public List<TweetItem> getAll() {
         return tweetDAO.getAllTweets();
     }
