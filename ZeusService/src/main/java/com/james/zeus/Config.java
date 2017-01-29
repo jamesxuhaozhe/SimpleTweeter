@@ -30,11 +30,7 @@ public class Config {
 
     @Bean
     public DynamoDBMapper dynamoDBMapper(AmazonDynamoDBClient amazonDynamoDBClient) {
-        DynamoDBMapper mapper = new DynamoDBMapper(amazonDynamoDBClient);
-        //CreateTableRequest request = mapper.generateCreateTableRequest(TweetItem.class);
-        //request.setProvisionedThroughput(new ProvisionedThroughput(1L, 1L));
-        //amazonDynamoDBClient.createTable(request);
-        return mapper;
+        return new DynamoDBMapper(amazonDynamoDBClient);
     }
 
     @Bean
