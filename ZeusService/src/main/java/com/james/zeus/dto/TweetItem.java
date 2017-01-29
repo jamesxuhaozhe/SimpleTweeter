@@ -5,7 +5,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.*;
 /**
  * Created by haozhexu on 1/26/17.
  */
-@DynamoDBTable(tableName = "SimpleTweets")
+@DynamoDBTable(tableName = "Tweets")
 public class TweetItem {
     private String id;
     private String userId;
@@ -22,7 +22,7 @@ public class TweetItem {
         return this;
     }
 
-    @DynamoDBAttribute(attributeName = "UserId")
+    @DynamoDBRangeKey(attributeName = "UserId")
     public String getUserId() {
         return userId;
     }
