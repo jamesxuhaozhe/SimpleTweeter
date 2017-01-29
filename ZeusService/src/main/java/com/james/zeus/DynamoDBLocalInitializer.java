@@ -31,7 +31,9 @@ public class DynamoDBLocalInitializer implements CommandLineRunner {
         CreateTableRequest createTableRequest = dynamoDBMapper.generateCreateTableRequest(TweetItem.class);
         createTableRequest.setProvisionedThroughput(new ProvisionedThroughput(100L, 100L));
         amazonDynamoDBClient.createTable(createTableRequest);
+    }
 
-        dynamoDBMapper.save(new TweetItem().setUserId("fooId").setCreatedTimeStamp(System.currentTimeMillis()));
+    private void populateDynamoDBLocal() {
+
     }
 }

@@ -17,20 +17,6 @@ public class TweetController {
     @Autowired
     private TweetHandler tweetHandler;
 
-    @RequestMapping("/helloWorld")
-    public String helloWorld() {
-
-        try
-        {
-         tweetHandler.haha();
-        }catch (Exception e)
-        {
-            return e.getMessage();
-        }
-
-        return "hello World";
-    }
-
     @RequestMapping("/all")
     public List<TweetItem> getAll() {
         return tweetHandler.getAll();
