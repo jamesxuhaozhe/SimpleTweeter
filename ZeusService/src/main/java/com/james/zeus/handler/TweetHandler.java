@@ -13,6 +13,12 @@ import java.util.stream.Collectors;
  */
 public class TweetHandler {
 
+    /**
+     * Ideally {@link TweetHandler} should talk to cache instead of
+     * {@link TweetDAO} I expect ZeusService will have more read operation
+     * which makes perfect sense to add a cache on top of it. However, I am cheap and
+     * lazy maybe I will do that as a separate task.
+     */
     @Autowired
     private TweetDAO tweetDAO;
 
