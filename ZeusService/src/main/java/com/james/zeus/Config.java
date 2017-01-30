@@ -11,6 +11,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * Central configuration class that define how bean can be created.
+ * Back in the old days, you need write this kind of stuff in xml.
+ * Now you can write this in the java code and add annotations
  * Created by haozhexu on 1/26/17.
  */
 @Configuration
