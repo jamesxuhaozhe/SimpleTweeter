@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * DAO implementation of {@link ITweetDAO}
  * Created by haozhexu on 1/27/17.
  */
 public class TweetDAO implements ITweetDAO {
