@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sun Jan 29 17:19:39 PST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0159-ecf4-bf44-00000949f070 
+on database directory memory:/home/haozhexu/SimpleTweeterArch/AthenaService/testdb with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/home/haozhexu/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.12.1.1/75070c744a8e52a7d17b8b476468580309d5cd09/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_101-b13
+user.dir=/home/haozhexu/SimpleTweeterArch/AthenaService
+os.name=Linux
+os.arch=amd64
+os.version=4.4.0-59-generic
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
