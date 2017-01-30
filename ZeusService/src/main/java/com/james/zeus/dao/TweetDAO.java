@@ -3,6 +3,7 @@ package com.james.zeus.dao;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.james.zeus.dto.TweetItem;
+import com.james.zeus.model.Tweet;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -32,7 +33,19 @@ public class TweetDAO implements ITweetDAO {
     }
 
     @Override
-    public void deleteTweet(TweetItem tweetItem) {
+    public List<TweetItem> getTweetsByUserId(String id) {
+        List<TweetItem> tweetItems = getAll();
+        List<TweetItem> result = new ArrayList<>();
+        tweetItems.forEach(tweetItem -> {
+            if (tweetItem.getUserId().equals(id)) {
+                result.add(tweetItem);
+            }
+        });
+        return result;
+    }
 
+    @Override
+    public void deleteTweet(TweetItem tweetItem) {
+        // no-op
     }
 }

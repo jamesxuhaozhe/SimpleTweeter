@@ -20,11 +20,14 @@ public class TweetHandler {
         List<TweetItem> tweetItemsDB = tweetDAO.getAll();
         return tweetItemsDB
                 .stream()
-                .map(tweetItem -> new Tweet()
-                        .setId(tweetItem.getId())
-                        .setUserId(tweetItem.getUserId())
-                        .setContent(tweetItem.getContent())
-                        .setCreatedTimeStamp(tweetItem.getCreatedTimeStamp()))
+                .map(Tweet::fromTweetItem)
+                .collect(Collectors.toList());
+    }
+
+    public List<Tweet> getTweetsByUserId(String id) {
+        List<TweetItem> tweetItems = tweetDAO.getTweetsByUserId(id);
+        return tweetItems.stream()
+                .map(Tweet::fromTweetItem)
                 .collect(Collectors.toList());
     }
 }

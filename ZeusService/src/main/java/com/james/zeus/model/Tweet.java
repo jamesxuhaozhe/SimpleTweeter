@@ -1,5 +1,6 @@
 package com.james.zeus.model;
 
+import com.james.zeus.dto.TweetItem;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,4 +32,12 @@ public class Tweet {
     @Getter
     @Setter
     private String content;
+
+    public static Tweet fromTweetItem(TweetItem tweetItem) {
+        return new Tweet()
+                .setId(tweetItem.getId())
+                .setUserId(tweetItem.getUserId())
+                .setContent(tweetItem.getContent())
+                .setCreatedTimeStamp(tweetItem.getCreatedTimeStamp());
+    }
 }
