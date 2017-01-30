@@ -19,11 +19,6 @@ public class TweetDAO implements ITweetDAO {
     private DynamoDBMapper dynamoDBMapper;
 
     @Override
-    public void saveTweet(TweetItem tweetItem) {
-        dynamoDBMapper.save(tweetItem);
-    }
-
-    @Override
     public List<TweetItem> getAll() {
         List<TweetItem> result = new ArrayList<>();
         List<TweetItem> tweets = dynamoDBMapper.scan(TweetItem.class, new DynamoDBScanExpression());
@@ -42,10 +37,5 @@ public class TweetDAO implements ITweetDAO {
             }
         });
         return result;
-    }
-
-    @Override
-    public void deleteTweet(TweetItem tweetItem) {
-        // no-op
     }
 }
