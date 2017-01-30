@@ -23,7 +23,7 @@ public class TweetDAO implements ITweetDAO {
     }
 
     @Override
-    public List<TweetItem> getAllTweets() {
+    public List<TweetItem> getAll() {
         List<TweetItem> result = new ArrayList<>();
         List<TweetItem> tweets = dynamoDBMapper.scan(TweetItem.class, new DynamoDBScanExpression());
         // we need to do this the list return from the mapper is unmodifiable

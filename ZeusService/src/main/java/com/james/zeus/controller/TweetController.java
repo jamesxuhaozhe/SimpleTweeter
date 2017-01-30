@@ -2,6 +2,7 @@ package com.james.zeus.controller;
 
 import com.james.zeus.dto.TweetItem;
 import com.james.zeus.handler.TweetHandler;
+import com.james.zeus.model.Tweet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ public class TweetController {
     private TweetHandler tweetHandler;
 
     @RequestMapping("/all")
-    public List<TweetItem> getAll() {
+    public List<Tweet> getAll() {
         return tweetHandler.getAll();
     }
 }

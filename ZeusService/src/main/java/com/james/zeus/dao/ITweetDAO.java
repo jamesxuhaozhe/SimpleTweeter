@@ -11,7 +11,7 @@ public interface ITweetDAO {
 
     void saveTweet(TweetItem tweetItem);
 
-    List<TweetItem> getAllTweets();
+    List<TweetItem> getAll();
 
     void deleteTweet(TweetItem tweetItem);
 }
